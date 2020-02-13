@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Chessboard
 {
-    internal class ChessBoard
+    public class ChessBoard
     {
         //Declare fields
         //2-D array of ChessSquares that will make up the chessboard

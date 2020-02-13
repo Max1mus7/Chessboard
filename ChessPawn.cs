@@ -23,8 +23,31 @@ namespace Chessboard
             FirstMoveTaken = false;
         }
 
-        public override void Move(int coordinate1, int coordinate2)
+        public override void Move(int coordinate1, int coordinate2, ChessBoard chessBoard)
         {
+            bool decision = true;
+            bool attackable = true;;
+            if(FirstMoveTaken)
+            {
+                if (decision)
+                {
+                    VerticalPosition++;
+                }
+                else if(!attackable)
+                {
+                    VerticalPosition += 2;
+                }
+                else
+                {
+                    VerticalPosition++;
+                    HorizontalPosition++;
+                }
+
+            }
+            else if(attackable)
+            {
+                VerticalPosition++;
+            }
         }
     }
 }
