@@ -20,7 +20,7 @@ namespace Chessboard
             }
         }
 
-        public override void Move(int coordinate1, int coordinate2, ChessBoard chessBoard)
+        public override void Move(int x, int y, ChessBoard chessBoard)
         {
         }
     }

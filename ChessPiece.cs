@@ -27,7 +27,7 @@ namespace Chessboard
             HorizontalPosition = (piecesCreated - 1) % 8;
         }
 
-        public abstract void Move(int coordinate1, int coordinate2, ChessBoard chessBoard);
+        public abstract void Move(int x, int y, ChessBoard chessBoard);
 
         public void Defeat(ChessPiece c)
         {

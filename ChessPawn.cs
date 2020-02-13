@@ -7,11 +7,9 @@ namespace Chessboard
     internal class ChessPawn : ChessPiece
     {
         public bool FirstMoveTaken { get; set; }
-
         public ChessPawn()
         {
             Name = "Pawn";
-            IsAlive = true;
             if (piecesCreated > 8 && piecesCreated < 17)
             {
                 VerticalPosition = 1;
@@ -23,30 +21,20 @@ namespace Chessboard
             FirstMoveTaken = false;
         }
 
-        public override void Move(int coordinate1, int coordinate2, ChessBoard chessBoard)
+        public override void Move(int x, int y, ChessBoard chessBoard)
         {
-            bool decision = true;
-            bool attackable = true;;
-            if(FirstMoveTaken)
+            if(!FirstMoveTaken)
             {
-                if (decision)
+                if(y <= VerticalPosition + 2 && y > VerticalPosition)
                 {
-                    VerticalPosition++;
-                }
-                else if(!attackable)
-                {
-                    VerticalPosition += 2;
-                }
-                else
-                {
-                    VerticalPosition++;
-                    HorizontalPosition++;
-                }
+                    if(!chessBoard.GetChessSquare(x,y).IsOccupied)
+                    {
+                        ChessPawn newPawn = (ChessPawn)this.MemberwiseClone();
+                        chessBoard.GetChessSquare(x,y).ChessPiece = newPawn;
+                        chessBoard.GetChessSquare(HorizontalPosition,VerticalPosition).ChessPiece = null;
 
-            }
-            else if(attackable)
-            {
-                VerticalPosition++;
+                    }
+                }
             }
         }
     }
