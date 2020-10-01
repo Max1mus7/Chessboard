@@ -4,15 +4,15 @@ using System.Text;
 
 namespace Chessboard
 {
-    internal class ChessBoard
+    public class ChessBoard
     {
         //Declare fields
         //2-D array of ChessSquares that will make up the chessboard
-        private ChessSquare[,] Chessboard = new ChessSquare[8, 8];
+        public ChessSquare[,] Chessboard { get; set; }
 
         public ChessBoard()
-
         {
+            Chessboard = new ChessSquare[8, 8];
             //creates a loop to access all areas of Chessboard array
             for (int i = 0; i < 8; i++)
             {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Chessboard
 {
-    internal class ChessSquare
+    public class ChessSquare
     {
         public bool IsBlack { get; }
         public bool IsOccupied { get; set; }

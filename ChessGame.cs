@@ -46,7 +46,6 @@ namespace Chessboard
                     }
                 }
             }
-            //cb.Move(cb.GetChessPiece(1, 5), 1);
         }
     }
 }
