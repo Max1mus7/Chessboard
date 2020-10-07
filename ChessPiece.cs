@@ -6,17 +6,24 @@ namespace Chessboard
 {
     public abstract class ChessPiece
     {
+        ///<summary>
+        ///properties required in every piece
+        /// </summary>
         public string Name { get; set; }
         public bool IsAlive { get; set; }
-        public int VerticalPosition { get; set; }
         public int HorizontalPosition { get; set; }
+        public int VerticalPosition { get; set; }
         public string Color { get; }
-        public static int piecesCreated = 0;
+        public static int PiecesCreated { get; set; }
 
+        ///<summary>
+        ///Default constructor that uses the PiecesCreated property to automatically determine-
+        ///whether a piece is the color black or the color white
+        /// </summary>
         public ChessPiece()
         {
-            piecesCreated++;
-            if (piecesCreated < 17)
+            PiecesCreated++;
+            if (PiecesCreated < 17)
             {
                 Color = "Black";
             }
@@ -24,21 +31,21 @@ namespace Chessboard
             {
                 Color = "White";
             }
-            HorizontalPosition = (piecesCreated - 1) % 8;
+            VerticalPosition = (PiecesCreated - 1) % 8;
         }
-
-        public abstract void Move(int x, int y, ChessBoard chessBoard);
-
+        /// <summary>
+        /// Method used to change a chess piece's status to defeated
+        /// </summary>
+        /// <param name="c">Requires a single ChessPiece</param>
         public void Defeat(ChessPiece c)
         {
             c.IsAlive = false;
         }
 
-        public int GetPiecesCreated()
-        {
-            return piecesCreated;
-        }
-
+        /// <summary>
+        /// Overrides the Object class's ToString method and returns a string representation of any ChessPiece object
+        /// </summary>
+        /// <returns>Returns a string representation of a chess piece. For example: a Black Pawn would be represented as BP</returns>
         public override string ToString()
         {
             return Color[0].ToString() + Name[0].ToString();

@@ -10,18 +10,15 @@ namespace Chessboard
         {
             Name = "Bishop";
             IsAlive = true;
-            if (piecesCreated == 3 || piecesCreated == 6)
+            if (PiecesCreated == 3 || PiecesCreated == 6)
             {
-                VerticalPosition = 0;
+                HorizontalPosition = 0;
             }
-            if (piecesCreated == 27 || piecesCreated == 30)
+            if (PiecesCreated == 27 || PiecesCreated == 30)
             {
-                VerticalPosition = 7;
+                HorizontalPosition = 7;
             }
         }
 
-        public override void Move(int x, int y, ChessBoard chessBoard)
-        {
-        }
     }
 }
